@@ -1,0 +1,13 @@
+- name: hellworld
+  hosts: localhost
+  become: no
+  gather_facts: no
+  vars_prompt:
+    - name: message
+      prompt: Add custom message
+      private: no
+      default: Human
+  tasks:
+    - name: debug 
+      debug:
+        msg: "Hello world {{ message }} !"
